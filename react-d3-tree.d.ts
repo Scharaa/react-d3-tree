@@ -5,7 +5,10 @@ declare module "react-d3-tree" {
   }
 
   type ReactD3TreeItem = {
+    id?: number,
     name?: string,
+    description?: string,
+    entityType?: string,
     attributes?: {
       [key: string]: string,
     };
