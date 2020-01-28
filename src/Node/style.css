@@ -24,3 +24,16 @@
   stroke-width: 1;
   font-size: smaller;
 }
+
+.nodeIdBase {
+  fill: #777;
+  stroke: #777;
+  stroke-width: 2;
+  font-size: smaller;
+}
+.nodeDescBase {
+  fill: rgb(36, 35, 48);
+  stroke:rgb(36, 35, 48);
+  stroke-width: 1;
+  font-size: smaller;
+}
