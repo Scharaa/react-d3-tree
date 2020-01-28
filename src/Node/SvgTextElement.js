@@ -61,12 +61,15 @@ export default class SvgTextElement extends React.PureComponent {
 
 SvgTextElement.defaultProps = {
   entityType: undefined,
+  name: undefined,
+  id: undefined,
+  description: undefined,
 };
 
 SvgTextElement.propTypes = {
-  id: T.number.isRequired,
-  name: T.string.isRequired,
-  description: T.string.isRequired,
+  name: T.string,
+  id: T.number,
+  description: T.string,
   textLayout: T.object.isRequired,
   nodeStyle: T.object.isRequired,
   entityType: T.string,
