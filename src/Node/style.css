@@ -18,12 +18,7 @@
   stroke-width: 1;
 }
 
-.nodeAttributesBase {
-  fill: #777;
-  stroke: #777;
-  stroke-width: 1;
-  font-size: smaller;
-}
+
 .nodePropBase {
   fill: rgb(212, 30, 30);
   stroke: rgb(221, 33, 33);
