@@ -1,9 +1,9 @@
 /* global __dirname, require, module */
 
 const webpack = require('webpack');
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+const {UglifyJsPlugin} = webpack.optimize;
 const path = require('path');
-const env = require('yargs').argv.env; // use --env with webpack 2
+const {env} = require('yargs').argv; // use --env with webpack 2
 
 const libraryName = 'react-d3-tree';
 

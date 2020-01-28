@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/label-has-for */
-/* eslint-disable camelcase */
 import React, { Fragment } from 'react';
 import T from 'prop-types';
-
 export default class SvgTextElement extends React.PureComponent {
   render() {
     const { id, name, nodeStyle, textLayout, entityType, description } = this.props;
@@ -51,12 +48,7 @@ export default class SvgTextElement extends React.PureComponent {
           )}
           {entityType === 'threat' && (
             <Fragment>
-              <div>
-                <label className="threatBase">
-                  <input type="checkbox" checked />
-                  <span className="slider" />
-                </label>
-              </div>
+              <div>Operator</div>
               <input type="checkbox" value="review" /> Reviewed <br />
               <button className="threatNode">New Vulnerability</button>
             </Fragment>

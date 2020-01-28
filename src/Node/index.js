@@ -1,11 +1,9 @@
-
 import React from 'react';
 import T from 'prop-types';
 import { select } from 'd3';
 import SvgTextElement from './SvgTextElement';
 import ForeignObjectElement from './ForeignObjectElement';
 import './style.css';
-
 export default class Node extends React.Component {
   state = {
     transform: this.setTransform(this.props.nodeData, this.props.orientation, true),
@@ -163,7 +161,7 @@ Node.propTypes = {
   name: T.string,
   attributes: T.object,
   textLayout: T.object.isRequired,
-  subscriptions: T.object.isRequired, // eslint-disable-line react/no-unused-prop-types
+  subscriptions: T.object.isRequired,
   allowForeignObjects: T.bool.isRequired,
   circleRadius: T.number,
   styles: T.object,
