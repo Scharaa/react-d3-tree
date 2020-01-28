@@ -2,7 +2,6 @@
 import React from 'react';
 import T from 'prop-types';
 import { select } from 'd3';
-
 import SvgTextElement from './SvgTextElement';
 import ForeignObjectElement from './ForeignObjectElement';
 import './style.css';
