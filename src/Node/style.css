@@ -4,13 +4,13 @@
   stroke: #000;
   stroke-width: 2;
 }
-
+/* 
 .leafNodeBase {
   cursor: pointer;
   fill: transparent;
   stroke: #000;
   stroke-width: 2;
-}
+} */
 
 .nodeNameBase {
   fill: #000;
