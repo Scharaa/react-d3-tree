@@ -270,7 +270,6 @@ class Tree extends React.Component {
 
     if (this.props.collapsible && !this.state.isTransitioning) {
       if (targetNode._collapsed) {
-        console.log("button");
         Tree.expandNode(targetNode);
         this.props.shouldCollapseNeighborNodes && this.collapseNeighborNodes(targetNode, data);
       } else {
@@ -428,8 +427,8 @@ class Tree extends React.Component {
     const tree = layout
       .tree()
       .nodeSize(orientation === 'horizontal' ? [nodeSize.y, nodeSize.x] : [nodeSize.x, nodeSize.y])
-      .separation(
-        (a, b) => (a.parent.id === b.parent.id ? separation.siblings : separation.nonSiblings),
+      .separation((a, b) =>
+        a.parent.id === b.parent.id ? separation.siblings : separation.nonSiblings,
       )
       .children(d => (d._collapsed ? null : d._children));
 
@@ -505,7 +504,50 @@ class Tree extends React.Component {
     const subscriptions = { ...nodeSize, ...separation, depthFactor, initialDepth };
     return (
       <div className={`rd3t-tree-container ${zoomable ? 'rd3t-grabbable' : undefined}`}>
-      <h1> Test </h1>
+        <svg className={rd3tSvgClassName} width="100%" height="100%">
+          <NodeWrapper
+            transitionDuration={transitionDuration}
+            component="g"
+            className={rd3tGClassName}
+            transform={`translate(${translate.x},${translate.y}) scale(${scale})`}
+          >
+            {links.map(linkData => (
+              <Link
+                key={uuid.v4()}
+                orientation={orientation}
+                pathFunc={pathFunc}
+                linkData={linkData}
+                onClick={this.handleOnLinkClickCb}
+                onMouseOver={this.handleOnLinkMouseOverCb}
+                onMouseOut={this.handleOnLinkMouseOutCb}
+                transitionDuration={transitionDuration}
+                styles={styles.links}
+              />
+            ))}
+
+            {nodes.map(nodeData => (
+              <Node
+                key={nodeData.id}
+                nodeSvgShape={{ ...nodeSvgShape, ...nodeData.nodeSvgShape }}
+                nodeLabelComponent={nodeLabelComponent}
+                nodeSize={nodeSize}
+                orientation={orientation}
+                transitionDuration={transitionDuration}
+                nodeData={nodeData}
+                name={nodeData.name}
+                attributes={nodeData.attributes}
+                onClick={this.handleNodeToggle}
+                onMouseOver={this.handleOnMouseOverCb}
+                onMouseOut={this.handleOnMouseOutCb}
+                textLayout={nodeData.textLayout || textLayout}
+                circleRadius={circleRadius}
+                subscriptions={subscriptions}
+                allowForeignObjects={allowForeignObjects}
+                styles={styles.nodes}
+              />
+            ))}
+          </NodeWrapper>
+        </svg>
       </div>
     );
   }
